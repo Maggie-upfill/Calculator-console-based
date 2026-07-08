@@ -12,6 +12,8 @@ private:
 	int b{};
 
 	void getNumbers();
+	void printResult(double result);
+
 
 };
 int main()
