@@ -12,6 +12,7 @@ private:
 	int b{};
 
 	void getNumbers();
+	bool isDivisionValid();
 	void printResult(double result);
 
 
