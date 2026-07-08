@@ -24,7 +24,7 @@ void clearInput()
 	std::cin.clear();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
-}
+
 
 //Get two valid integers from the user
 void Calculator::getNumbers()
@@ -62,6 +62,44 @@ bool Calculator::isDivisionValid()
 
 	return true;
 }
+
+void Calculator::calculate(char operation)
+{
+	getNumbers();
+
+	switch (operation)
+	{
+	case '+':
+		printResult(a + b);
+		break;
+
+	case '-':
+		printResult(a - b);
+		break;
+
+	case '*':
+		printResult(a * b);
+		break;
+
+	case '/':
+		if (!isDivisionValid())
+			return;
+
+		printResult(static_cast<double>(a) / b);
+		break;
+
+	case '%':
+		if (!isDivisionValid())
+			return;
+
+		printResult(static_cast<double>(a) / b);
+		break;
+	default:
+		std::cout << "Unknown operation.\n";
+		break;
+	}
+}
+
 
 int main()
 {
