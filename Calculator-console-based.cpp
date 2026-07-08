@@ -100,6 +100,19 @@ void Calculator::calculate(char operation)
 	}
 }
 
+void menu()
+{
+	std::cout << "\n=========================\n";
+	std::cout << "      CALCULATOR\n";
+	std::cout << "=========================\n";
+	std::cout << "1. Add\n";
+	std::cout << "2. Subtract\n";
+	std::cout << "3. Multiply\n";
+	std::cout << "4. Divide\n";
+	std::cout << "5. Modulo\n";
+	std::cout << "6. Exit\n";
+	std::cout << "=========================\n";
+}
 
 int main()
 {
