@@ -117,8 +117,51 @@ void menu()
 int main()
 {
 	Calculator calc;
+	int choice{};
 
+	do {
+		menu();
+		std::cout << "Enter your choice: ";
+		if (!(std::cin >> choice))
+		{
+			clearInput();
 
+			std::cout << "Invalid input.\n";
+			continue;
+		}
 
+		switch (choice) {
+		case 1:
+			calc.calculate('+');
+			break;
+
+		case 2:
+			calc.calculate('-');
+			break;
+
+		case 3:
+			calc.calculate('*');
+			break;
+
+		case 4:
+			calc.calculate('/');
+			break;
+
+		case 5:
+			calc.calculate('%');
+			break;
+		case 6:
+			std::cout << "Exiting the program. Goodbye!\n";
+			break;
+		default:
+			std::cout << "Invalid choice. Please try again.\n";
+			break;
+		}
+
+	} while (choice != 6);
 }
+
+
+
+
 
