@@ -15,8 +15,11 @@ private:
 	bool isDivisionValid();
 	void printResult(double result);
 
-
+public:
+	void calculate(char operation);
 };
+
+
 int main()
 {
 
