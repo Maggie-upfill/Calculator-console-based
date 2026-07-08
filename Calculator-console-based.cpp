@@ -116,6 +116,7 @@ void menu()
 
 int main()
 {
+	Calculator calc;
 
 
 
