@@ -11,6 +11,8 @@ private:
 	int a{};
 	int b{};
 
+	void getNumbers();
+
 };
 int main()
 {
