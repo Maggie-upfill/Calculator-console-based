@@ -19,6 +19,11 @@ public:
 	void calculate(char operation);
 };
 
+void clearInput()
+{
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
 
 int main()
 {
