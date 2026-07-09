@@ -26,6 +26,9 @@ private:
 
 public:
 	void calculate(char operation);
+	void displayHistory() const;
+	void clearHistory();
+	void loadHistory();
 };
 
 void clearInput()
@@ -72,6 +75,19 @@ bool Calculator::isDivisionValid()
 	return true;
 }
 
+void Calculator::recordHistory(char operation, double result)
+{
+	std::string record =
+		std::to_string(a) + " " +
+		operation + " " +
+		std::to_string(b) +
+		" = " +
+		std::to_string(result);
+
+	history.push_back(record);
+
+	saveHistory(record);
+}
 void saveHistory(const std::string& history)
 {
 	std::ofstream outFile("history.txt", std::ios::app);
