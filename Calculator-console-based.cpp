@@ -224,7 +224,7 @@ int main()
 		case 14:
 			calc.calculate('w');
 			break;
-		case 15:
+		case 17:
 			std::cout << "Exiting the program. Goodbye!\n";
 			break;
 		default:
