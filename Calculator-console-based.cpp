@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <limits>
+#include <cmath>
 
 //class calculator
 class Calculator
@@ -110,7 +111,12 @@ void menu()
 	std::cout << "3. Multiply\n";
 	std::cout << "4. Divide\n";
 	std::cout << "5. Modulo\n";
-	std::cout << "6. Exit\n";
+	std::cout << "6. Power\n";
+	std::cout << "7. Square Root\n";
+	std::cout << "8. History\n";
+	std::cout << "9. Save history\n";
+	std::cout << "10. Exit\n";
+
 	std::cout << "=========================\n";
 }
 
@@ -158,7 +164,7 @@ int main()
 			break;
 		}
 
-	} while (choice != 6);
+	} while (choice != 10);
 }
 
 
