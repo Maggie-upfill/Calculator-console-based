@@ -6,6 +6,7 @@
 #include <cmath>
 #include <algorithm>
 #include <fstream>
+#include <string>
 
 //class calculator
 class Calculator
@@ -77,6 +78,24 @@ void saveHistory(const std::string& history)
 	else
 	{
 		std::cout << "Error: Unable to open history file for writing.\n";
+	}
+}
+void displayHistory()
+{
+	std::ifstream inFile("history.txt");
+	if (inFile.is_open())
+	{
+		std::string line;
+		std::cout << "Calculation History:\n";
+		while (std::getline(inFile, line))
+		{
+			std::cout << line << std::endl;
+		}
+		inFile.close();
+	}
+	else
+	{
+		std::cout << "Error: Unable to open history file for reading.\n";
 	}
 }
 void Calculator::calculate(char operation)
