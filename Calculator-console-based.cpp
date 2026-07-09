@@ -4,6 +4,7 @@
 #include <iostream>
 #include <limits>
 #include <cmath>
+#include <algorithm>
 
 //class calculator
 class Calculator
@@ -126,6 +127,8 @@ void Calculator::calculate(char operation)
 		case 'v':
 		printResult((a + b) / 2.0);
 		break;
+		case 'w':
+			std::swap(a, b);
 	default:
 		std::cout << "Unknown operation.\n";
 		break;
@@ -150,9 +153,10 @@ void menu()
 	std::cout << "11.Maximum value\n";
 	std::cout << "12. Minimum value\n";
 	std::cout << "13. Average\n";
-	std::cout << "14. History\n";
-	std::cout << "15. Save history\n";
-	std::cout << "16. Exit\n";
+	std::cout << "14. Swap numbers\n";
+	std::cout << "15. History\n";
+	std::cout << "16. Save history\n";
+	std::cout << "17. Exit\n";
 
 	std::cout << "=========================\n";
 }
@@ -216,6 +220,9 @@ int main()
 			break;
 		case 13:
 			calc.calculate('v');
+			break;
+		case 14:
+			calc.calculate('w');
 			break;
 		case 15:
 			std::cout << "Exiting the program. Goodbye!\n";
