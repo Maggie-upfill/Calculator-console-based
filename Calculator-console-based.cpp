@@ -117,7 +117,9 @@ void Calculator::calculate(char operation)
 	case 'a':
 		printResult(std::abs(a));
 		break;
-
+	case 'm':
+		printResult(std::max(a, b));
+		break;
 	default:
 		std::cout << "Unknown operation.\n";
 		break;
@@ -139,9 +141,10 @@ void menu()
 	std::cout << "8. Square \n";
 	std::cout << "9. Cube\n";
 	std::cout << "10.Absolute value\n";
-	std::cout << "11. History\n";
-	std::cout << "12. Save history\n";
-	std::cout << "13. Exit\n";
+	std::cout << "11.Maximum value\n";
+	std::cout << "12. History\n";
+	std::cout << "13. Save history\n";
+	std::cout << "14. Exit\n";
 
 	std::cout << "=========================\n";
 }
@@ -198,6 +201,9 @@ int main()
 			calc.calculate('a');
 			break;
 		case 11:
+			calc.calculate('m');
+			break;
+		case 15:
 			std::cout << "Exiting the program. Goodbye!\n";
 			break;
 		default:
