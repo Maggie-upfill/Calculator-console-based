@@ -108,6 +108,9 @@ void Calculator::calculate(char operation)
 		}
 		printResult(std::sqrt(a));
 		break;
+	case 'q':	
+		printResult(a * a);
+		break;
 
 	default:
 		std::cout << "Unknown operation.\n";
@@ -127,9 +130,10 @@ void menu()
 	std::cout << "5. Modulo\n";
 	std::cout << "6. Power\n";
 	std::cout << "7. Square Root\n";
-	std::cout << "8. History\n";
-	std::cout << "9. Save history\n";
-	std::cout << "10. Exit\n";
+	std::cout << "8. Square \n";
+	std::cout << "9. History\n";
+	std::cout << "10. Save history\n";
+	std::cout << "11. Exit\n";
 
 	std::cout << "=========================\n";
 }
@@ -176,7 +180,7 @@ int main()
 		case 7:
 			calc.calculate('s');
 			break;
-		case 10:
+		case 11:
 			std::cout << "Exiting the program. Goodbye!\n";
 			break;
 		default:
@@ -184,7 +188,7 @@ int main()
 			break;
 		}
 
-	} while (choice != 10);
+	} while (choice != 11);
 }
 
 
