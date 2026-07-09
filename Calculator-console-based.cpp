@@ -111,6 +111,9 @@ void Calculator::calculate(char operation)
 	case 'q':	
 		printResult(a * a);
 		break;
+	case 'c':
+		printResult(a * a * a);
+		break;
 
 	default:
 		std::cout << "Unknown operation.\n";
@@ -131,9 +134,10 @@ void menu()
 	std::cout << "6. Power\n";
 	std::cout << "7. Square Root\n";
 	std::cout << "8. Square \n";
-	std::cout << "9. History\n";
-	std::cout << "10. Save history\n";
-	std::cout << "11. Exit\n";
+	std::cout << "9. Cube\n";
+	std::cout << "10. History\n";
+	std::cout << "11. Save history\n";
+	std::cout << "12. Exit\n";
 
 	std::cout << "=========================\n";
 }
@@ -179,6 +183,12 @@ int main()
 			break;
 		case 7:
 			calc.calculate('s');
+			break;
+		case 8:
+			calc.calculate('q');
+			break;
+		case 9: 
+			calc.calculate('c');
 			break;
 		case 11:
 			std::cout << "Exiting the program. Goodbye!\n";
