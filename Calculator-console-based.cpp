@@ -5,6 +5,7 @@
 #include <limits>
 #include <cmath>
 #include <algorithm>
+#include <fstream>
 
 //class calculator
 class Calculator
@@ -65,6 +66,19 @@ bool Calculator::isDivisionValid()
 	return true;
 }
 
+void saveHistory(const std::string& history)
+{
+	std::ofstream outFile("history.txt", std::ios::app);
+	if (outFile.is_open())
+	{
+		outFile << history << std::endl;
+		outFile.close();
+	}
+	else
+	{
+		std::cout << "Error: Unable to open history file for writing.\n";
+	}
+}
 void Calculator::calculate(char operation)
 {
 	getNumbers();
