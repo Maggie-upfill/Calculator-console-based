@@ -95,6 +95,11 @@ void Calculator::calculate(char operation)
 
 		printResult(a % b);
 		break;
+
+	case '^':
+		printResult(std::pow(a, b));
+		break;
+
 	default:
 		std::cout << "Unknown operation.\n";
 		break;
@@ -157,6 +162,9 @@ int main()
 			calc.calculate('%');
 			break;
 		case 6:
+			calc.calculate('^');
+			break;
+		case 10:
 			std::cout << "Exiting the program. Goodbye!\n";
 			break;
 		default:
