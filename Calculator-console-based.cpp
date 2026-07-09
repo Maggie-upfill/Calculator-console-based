@@ -75,11 +75,185 @@ bool Calculator::isDivisionValid()
 	return true;
 }
 
+void Calculator::calculate(char operation)
+{
+	getNumbers();
+
+	switch (operation)
+	{
+	case '+':
+	{
+		double result = a + b;
+
+		printResult(result);
+
+		recordHistory('+', result);
+
+		break;
+	}
+
+	case '-':
+	{
+		double result = a - b;
+
+		printResult(result);
+
+		recordHistory('-', result);
+
+		break;
+	}
+
+	case '*':
+	{
+		double result = a * b;
+
+		printResult(result);
+
+		recordHistory('*', result);
+
+		break;
+	}
+
+	case '/':
+	{
+		if (!isDivisionValid())
+			return;
+
+		double result = static_cast<double>(a) / b;
+
+		printResult(result);
+
+		recordHistory('/', result);
+
+		break;
+	}
+
+	case '%':
+	{
+		if (!isDivisionValid())
+			return;
+
+		double result = a % b;
+
+		printResult(result);
+
+		recordHistory('%', result);
+
+		break;
+	}
+
+	case '^':
+	{
+		double result = std::pow(a, b);
+
+		printResult(result);
+
+		recordHistory('^', result);
+
+		break;
+	}
+
+	case 's':
+	{
+		if (a < 0)
+		{
+			std::cout << "Error: Cannot calculate square root of a negative number!\n";
+			return;
+		}
+		double result = std::sqrt(a);
+
+		printResult(result);
+
+		recordHistory('s', result);
+
+		break;
+	}
+	case 'q':
+	{
+		double result = a * a;
+
+		printResult(result);
+
+		recordHistory('q', result);
+
+		break;
+	}
+	case 'c':
+	{
+		double result = a * a * a;
+
+		printResult(result);
+
+		recordHistory('c', result);
+
+		break;
+	}
+	case 'a':
+	{
+		double result = std::abs(a);
+
+		printResult(result);
+
+		recordHistory('a', result);
+
+		break;
+	}
+	case 'm':
+	{
+		double result = std::max(a, b);
+
+		printResult(result);
+
+		recordHistory('m', result);
+
+		break;
+	}
+	case 'n':
+	{
+		double result = std::min(a, b);
+
+		printResult(result);
+
+		recordHistory('n', result);
+
+		break;
+	}
+	case 'v':
+	{
+		double result = (a + b) / 2.0;
+
+		printResult(result);
+
+		recordHistory('v', result);
+
+		break;
+	}
+	case 'w':
+	{
+		double result = std::swap(a, b);
+
+		printResult(result);
+
+		recordHistory('w', result);
+
+		break;
+	}
+		case 'h':
+
+			displayHistory();
+
+			break;
+
+	default:
+		std::cout << "Unknown operation.\n";
+		break;
+	}
+}
 void Calculator::recordHistory(char operation, double result)
 {
 	std::string record =
 		std::to_string(a) + " " +
-		operation + " " +
+		std::string(1, operation) + " " +
 		std::to_string(b) +
 		" = " +
 		std::to_string(result);
@@ -88,139 +262,55 @@ void Calculator::recordHistory(char operation, double result)
 
 	saveHistory(record);
 }
-void saveHistory(const std::string& history)
+
+
+void Calculator::saveHistory(const std::string& record)
 {
-	std::ofstream outFile("history.txt", std::ios::app);
-	if (outFile.is_open())
+	std::ofstream file("history.txt", std::ios::app);
+
+	if (file)
 	{
-		outFile << history << std::endl;
-		outFile.close();
-	}
-	else
-	{
-		std::cout << "Error: Unable to open history file for writing.\n";
-	}
-}
-void displayHistory()
-{
-	std::ifstream inFile("history.txt");
-	if (inFile.is_open())
-	{
-		std::string line;
-		std::cout << "Calculation History:\n";
-		while (std::getline(inFile, line))
-		{
-			std::cout << line << std::endl;
-		}
-		inFile.close();
-	}
-	else
-	{
-		std::cout << "Error: Unable to open history file for reading.\n";
-	}
-}
-void Calculator::calculate(char operation)
-{
-	getNumbers();
-
-	switch (operation)
-	{
-	case '+':
-		double result = a + b;
-		printResult(result);
-		recordHistory('+', result);
-		break;
-
-	case '-':
-		double result = a - b;
-		printResult(result);
-		recordHistory('-', result);
-		break;
-
-	case '*':
-		double result = a * b;
-		printResult(result);
-		recordHistory('*', result);
-		break;
-
-	case '/':
-		if (!isDivisionValid())
-			return;
-
-		double result = static_cast<double>(a) / b;
-		printResult(result);
-		recordHistory('/', result);
-		break;
-
-	case '%':
-		if (!isDivisionValid())
-			return;
-
-		double result = a % b;
-		printResult(result);
-		recordHistory('%', result);
-		break;
-
-	case '^':
-		double result = std::pow(a, b);
-		printResult(result);
-		recordHistory('^', result);
-		break;
-
-	case 's':
-		if (a < 0)
-		{
-			std::cout << "Error: Cannot calculate square root of a negative number!\n";
-			return;
-		}
-		double result = std::sqrt(a);
-		printResult(result);
-		recordHistory('s', result);
-		break;
-	case 'q':	
-		double result = a * a;
-		printResult(result);
-		recordHistory('q', result);
-		break;
-	case 'c':
-		double result = a * a * a;
-		printResult(result);
-		recordHistory('c', result);
-		break;
-	case 'a':
-		double result = std::abs(a);
-		printResult(result);
-		recordHistory('a', result);
-		break;
-	case 'm':
-		double result = std::max(a, b);
-		printResult(result);
-		recordHistory('m', result);
-		break;
-	case 'n':
-		double result = std::min(a, b);
-		printResult(result);
-		recordHistory('n', result);
-		break;
-		case 'v':
-		double result = (a + b) / 2.0;
-		printResult(result);
-		recordHistory('v', result);
-		break;
-		case 'w':
-			std::swap(a, b);
-		case 'h':
-			displayHistory();
-			break;
-		case 'f':
-			saveHistory("Saved calculation: " + std::to_string(a) + " " + std::to_string(b));
-			break;
-	default:
-		std::cout << "Unknown operation.\n";
-		break;
+		file << record << '\n';
 	}
 }
 
+void Calculator::loadHistory()
+{
+	std::ifstream file("history.txt");
+
+	std::string line;
+
+	while (std::getline(file, line))
+	{
+		history.push_back(line);
+	}
+}
+
+void Calculator::displayHistory() const
+{
+	if (history.empty())
+	{
+		std::cout << "History is empty.\n";
+		return;
+	}
+
+	for (size_t i = 0; i < history.size(); i++)
+	{
+		std::cout << i + 1 << ". "
+			<< history[i]
+			<< '\n';
+	}
+}
+
+
+void Calculator::clearHistory()
+{
+	history.clear();
+
+	std::ofstream file("history.txt");
+
+	std::cout << "History cleared.\n";
+}
 void menu()
 {
 	std::cout << "\n=========================\n";
@@ -241,7 +331,7 @@ void menu()
 	std::cout << "13. Average\n";
 	std::cout << "14. Swap numbers\n";
 	std::cout << "15. History\n";
-	std::cout << "16. Save history\n";
+	std::cout << "16. Clear history\n";
 	std::cout << "17. Exit\n";
 
 	std::cout << "=========================\n";
@@ -250,6 +340,7 @@ void menu()
 int main()
 {
 	Calculator calc;
+	calc.loadHistory();
 	int choice{};
 
 	do {
@@ -314,7 +405,7 @@ int main()
 			calc.calculate('h');
 			break;
 		case 16:
-			calc.calculate('f');
+			calc.clearHistory();
 			break;
 		case 17:
 			std::cout << "Exiting the program. Goodbye!\n";
