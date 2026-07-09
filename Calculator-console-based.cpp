@@ -162,6 +162,12 @@ void Calculator::calculate(char operation)
 		break;
 		case 'w':
 			std::swap(a, b);
+		case 'h':
+			displayHistory();
+			break;
+		case 'f':
+			saveHistory("Saved calculation: " + std::to_string(a) + " " + std::to_string(b));
+			break;
 	default:
 		std::cout << "Unknown operation.\n";
 		break;
@@ -256,6 +262,12 @@ int main()
 			break;
 		case 14:
 			calc.calculate('w');
+			break;
+		case 15:
+			calc.calculate('h');
+			break;
+		case 16:
+			calc.calculate('f');
 			break;
 		case 17:
 			std::cout << "Exiting the program. Goodbye!\n";
