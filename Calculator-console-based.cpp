@@ -123,6 +123,9 @@ void Calculator::calculate(char operation)
 	case 'n':
 		printResult(std::min(a, b));
 		break;
+		case 'v':
+		printResult((a + b) / 2.0);
+		break;
 	default:
 		std::cout << "Unknown operation.\n";
 		break;
@@ -146,9 +149,10 @@ void menu()
 	std::cout << "10.Absolute value\n";
 	std::cout << "11.Maximum value\n";
 	std::cout << "12. Minimum value\n";
-	std::cout << "13. History\n";
-	std::cout << "14. Save history\n";
-	std::cout << "15. Exit\n";
+	std::cout << "13. Average\n";
+	std::cout << "14. History\n";
+	std::cout << "15. Save history\n";
+	std::cout << "16. Exit\n";
 
 	std::cout << "=========================\n";
 }
@@ -206,6 +210,12 @@ int main()
 			break;
 		case 11:
 			calc.calculate('m');
+			break;
+		case 12:
+			calc.calculate('n');
+			break;
+		case 13:
+			calc.calculate('v');
 			break;
 		case 15:
 			std::cout << "Exiting the program. Goodbye!\n";
