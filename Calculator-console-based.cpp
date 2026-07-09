@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <fstream>
 #include <string>
+#include <vector>
 
 //class calculator
 class Calculator
@@ -15,9 +16,13 @@ private:
 	int a{};
 	int b{};
 
+	std::vector<std::string> history;
+
 	void getNumbers();
 	bool isDivisionValid();
 	void printResult(double result);
+	void recordHistory(char operation, double result);
+	void saveHistory(const std::string& record);
 
 public:
 	void calculate(char operation);
