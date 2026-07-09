@@ -232,7 +232,7 @@ int main()
 			break;
 		}
 
-	} while (choice != 11);
+	} while (choice != 17);
 }
 
 
