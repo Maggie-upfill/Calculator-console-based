@@ -126,33 +126,45 @@ void Calculator::calculate(char operation)
 	switch (operation)
 	{
 	case '+':
-		printResult(a + b);
+		double result = a + b;
+		printResult(result);
+		recordHistory('+', result);
 		break;
 
 	case '-':
-		printResult(a - b);
+		double result = a - b;
+		printResult(result);
+		recordHistory('-', result);
 		break;
 
 	case '*':
-		printResult(a * b);
+		double result = a * b;
+		printResult(result);
+		recordHistory('*', result);
 		break;
 
 	case '/':
 		if (!isDivisionValid())
 			return;
 
-		printResult(static_cast<double>(a) / b);
+		double result = static_cast<double>(a) / b;
+		printResult(result);
+		recordHistory('/', result);
 		break;
 
 	case '%':
 		if (!isDivisionValid())
 			return;
 
-		printResult(a % b);
+		double result = a % b;
+		printResult(result);
+		recordHistory('%', result);
 		break;
 
 	case '^':
-		printResult(std::pow(a, b));
+		double result = std::pow(a, b);
+		printResult(result);
+		recordHistory('^', result);
 		break;
 
 	case 's':
@@ -161,25 +173,39 @@ void Calculator::calculate(char operation)
 			std::cout << "Error: Cannot calculate square root of a negative number!\n";
 			return;
 		}
-		printResult(std::sqrt(a));
+		double result = std::sqrt(a);
+		printResult(result);
+		recordHistory('s', result);
 		break;
 	case 'q':	
-		printResult(a * a);
+		double result = a * a;
+		printResult(result);
+		recordHistory('q', result);
 		break;
 	case 'c':
-		printResult(a * a * a);
+		double result = a * a * a;
+		printResult(result);
+		recordHistory('c', result);
 		break;
 	case 'a':
-		printResult(std::abs(a));
+		double result = std::abs(a);
+		printResult(result);
+		recordHistory('a', result);
 		break;
 	case 'm':
-		printResult(std::max(a, b));
+		double result = std::max(a, b);
+		printResult(result);
+		recordHistory('m', result);
 		break;
 	case 'n':
-		printResult(std::min(a, b));
+		double result = std::min(a, b);
+		printResult(result);
+		recordHistory('n', result);
 		break;
 		case 'v':
-		printResult((a + b) / 2.0);
+		double result = (a + b) / 2.0;
+		printResult(result);
+		recordHistory('v', result);
 		break;
 		case 'w':
 			std::swap(a, b);
