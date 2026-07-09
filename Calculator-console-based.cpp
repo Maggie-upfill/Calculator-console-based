@@ -100,6 +100,15 @@ void Calculator::calculate(char operation)
 		printResult(std::pow(a, b));
 		break;
 
+	case 's':
+		if (a < 0)
+		{
+			std::cout << "Error: Cannot calculate square root of a negative number!\n";
+			return;
+		}
+		printResult(std::sqrt(a));
+		break;
+
 	default:
 		std::cout << "Unknown operation.\n";
 		break;
@@ -163,6 +172,9 @@ int main()
 			break;
 		case 6:
 			calc.calculate('^');
+			break;
+		case 7:
+			calc.calculate('s');
 			break;
 		case 10:
 			std::cout << "Exiting the program. Goodbye!\n";
