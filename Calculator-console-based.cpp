@@ -92,7 +92,7 @@ void Calculator::calculate(char operation)
 		if (!isDivisionValid())
 			return;
 
-		printResult(static_cast<double>(a) / b);
+		printResult(a % b);
 		break;
 	default:
 		std::cout << "Unknown operation.\n";
