@@ -31,7 +31,7 @@ Date    : 10 July 2026
  * and saves/loads history from a file.
  */
 
-class Calculator
+/*class Calculator
 {
 private:
 	// Use double to support both integer and decimal calculations.
@@ -74,7 +74,7 @@ public:
 
 
 	void loadHistory();
-};
+};*/
 
 /**
  * @brief Clears the input stream after invalid user input.

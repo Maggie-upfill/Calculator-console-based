@@ -1,8 +1,16 @@
 #pragma once
+
 #include <vector>
 #include <string>
 
-
+/*
+ * @class Calculator
+ * @brief Performs arithmetic operations on two numbers.
+ *
+ * The Calculator class validates user input, performs
+ * mathematical operations, records calculation history,
+ * and saves/loads history from a file.
+ */
 class Calculator
 {
 private:
