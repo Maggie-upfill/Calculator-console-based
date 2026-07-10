@@ -45,16 +45,24 @@ void Calculator::getNumbers()
 	{
 		std::cout << "Enter two numbers: ";
 
-		if (std::cin >> a >> b)
+		if (!(std::cin >> a >> b))
 		{
-			return; // valid input, exit function
+			std::cout << "Invalid input. Please enter numeric values only.\n";
+
+			clearInput();
+			continue;
 		}
 
-		std::cout << "Invalid input. Please enter numbers only.\n";
+		if (!std::isfinite(a) || !std::isfinite(b))
+		{
+			std::cout << "Error: Number is outside the supported range.\n";
 
-		clearInput();
+			clearInput();
+			continue;
+		}
+
+		return;
 	}
-
 }
 
 //Helper function to print the result
