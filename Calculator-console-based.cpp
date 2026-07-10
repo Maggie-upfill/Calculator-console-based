@@ -1,5 +1,16 @@
-// Calculator-console-based.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+
+/*
+-------------------------------------------------------
+Project : Calculator Console-Based Application
+File    : Calculator-console-based.cpp
+Author  : Margaret Hamisi
+Purpose : Implements the Calculator class and its
+		  arithmetic operations, input validation,
+		  calculation history, and file handling.
+Date    : 10 July 2026
+----------------------------
+*/
+
 
 #include <iostream>
 #include <limits>
@@ -9,46 +20,70 @@
 #include <string>
 #include <vector>
 
-//class to handle calculator operations and history
+/*
+ * @class Calculator
+ * @brief Performs arithmetic operations on two numbers.
+ *
+ * The Calculator class validates user input, performs
+ * mathematical operations, records calculation history,
+ * and saves/loads history from a file.
+ */
+
 class Calculator
 {
 private:
+	// Use double to support both integer and decimal calculations.
+
+	 // First operand entered by the user.
 	double a{};
+
+	// Second operand entered by the user.
 	double b{};
 
-	std::vector<std::string> history;
+	// Stores calculations for the current session.
+	std::vector<std::string> history;   
 
+	// Reads and validates user input.
 	void getNumbers();
+
+	// Checks whether division or modulo is valid.
 	bool isDivisionValid();
 
+	// Displays the calculation result.
 	void printResult(double result);
 
+	// Stores a calculation in memory and saves it to file.
 	void recordHistory(char operation, double result);
 
+	// Appends a calculation to history.txt.
 	void saveHistory(const std::string& record);
 
 public:
+	// Performs the selected operation.
 	void calculate(char operation);
 
+	// Displays all recorded calculations.
 	void displayHistory() const;
 
+	// Removes all stored calculations.
 	void clearHistory();
+
 
 	void loadHistory();
 };
 
-//Helper function to clear the input buffer
 void clearInput()
 {
 	std::cin.clear();
+
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 
-//Get two valid integers from the user
+
 void Calculator::getNumbers()
 {
-	while (true)
+	while (true)      
 	{
 		std::cout << "Enter two numbers: ";
 
@@ -64,15 +99,13 @@ void Calculator::getNumbers()
 		{
 			std::cout << "Error: Number is outside the supported range.\n";
 
-			clearInput();
-			continue;
+			clearInput();  
 		}
 
 		return;
 	}
 }
 
-//Helper function to print the result & validate if the result is finite (not infinity or NaN)
 	void Calculator::printResult(double result)
 	{
 		if (!std::isfinite(result))
@@ -85,7 +118,6 @@ void Calculator::getNumbers()
 	}
 
 
-//Helper function to check if division or modulo is valid
 bool Calculator::isDivisionValid()
 {
 	if (b == 0)
@@ -336,16 +368,17 @@ void Calculator::calculate(char operation)
 		break;
 	}
 }
+
 void Calculator::recordHistory(char operation, double result)
 {
 	std::string record =
 		std::to_string(a) + " " +
-		std::string(1, operation) + " " +    //Role of string(1,operation) to convert the operator (+, -, *, etc.) into a string.
+		std::string(1, operation) + " " +    
 		std::to_string(b) +
 		" = " +
 		std::to_string(result);
 
-	history.push_back(record);
+	history.push_back(record);     
 
 	saveHistory(record);
 }
@@ -372,6 +405,7 @@ void Calculator::loadHistory()
 		history.push_back(line);
 	}
 }
+
 
 void Calculator::displayHistory() const
 {
