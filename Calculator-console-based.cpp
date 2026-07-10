@@ -102,7 +102,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('+', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('+', result);
+		}
 
 		break;
 	}
@@ -113,7 +116,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('-', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('-', result);
+		}
 
 		break;
 	}
@@ -124,7 +130,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('*', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('*', result);
+		}
 
 		break;
 	}
@@ -138,7 +147,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('/', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('/', result);
+		}
 
 		break;
 	}
@@ -152,7 +164,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('%', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('%', result);
+		}
 
 		break;
 	}
@@ -163,7 +178,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('^', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('^', result);
+		}
 
 		break;
 	}
@@ -200,7 +218,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('s', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('s', result);
+		}
 
 		break;
 
@@ -211,7 +232,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('q', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('q', result);
+		}
 
 		break;
 	}
@@ -221,7 +245,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('c', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('c', result);
+		}
 
 		break;
 	}
@@ -231,7 +258,11 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('a', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('a', result);
+		}
+
 
 		break;
 	}
@@ -241,7 +272,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('m', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('m', result);
+		}
 
 		break;
 	}
@@ -251,7 +285,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('n', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('n', result);
+		}
 
 		break;
 	}
@@ -261,7 +298,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('v', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('v', result);
+		}
 
 		break;
 	}
@@ -271,7 +311,10 @@ void Calculator::calculate(char operation)
 
 		printResult(result);
 
-		recordHistory('w', result);
+		if (std::isfinite(result))
+		{
+			recordHistory('w', result);
+		}
 
 		break;
 	}
