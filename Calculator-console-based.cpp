@@ -13,8 +13,8 @@
 class Calculator
 {
 private:
-	int a{};
-	int b{};
+	double a{};
+	double b{};
 
 	std::vector<std::string> history;
 
@@ -153,21 +153,43 @@ void Calculator::calculate(char operation)
 		break;
 	}
 
-	case 's':
+	/*case 's':
 	{
-		if (a < 0)
-		{
+		if (number < 0) {
+
 			std::cout << "Error: Cannot calculate square root of a negative number!\n";
 			return;
+
 		}
-		double result = std::sqrt(a);
+		if (number < 0)
+		{
+			std::cout << "Negative number detected.\n";
+			std::cout << "Use absolute value instead? (Y/N): ";
+
+			char answer;
+			std::cin >> answer;
+
+			if (answer == 'Y' || answer == 'y')
+			{
+				number = std::abs(number);
+			}
+			else
+			{
+				return;
+			}
+		}
+
+		std::cout << "Square root = " << std::sqrt(number);
+		
+		double result = std::sqrt(number);
 
 		printResult(result);
 
 		recordHistory('s', result);
 
 		break;
-	}
+
+	}*/
 	case 'q':
 	{
 		double result = a * a;
@@ -230,7 +252,7 @@ void Calculator::calculate(char operation)
 	}
 	case 'w':
 	{
-		double result = std::swap(a, b);
+		int result = std::swap(a, b);
 
 		printResult(result);
 
