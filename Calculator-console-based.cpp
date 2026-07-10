@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 
-//class calculator
+//class to handle calculator operations and history
 class Calculator
 {
 private:
@@ -20,17 +20,24 @@ private:
 
 	void getNumbers();
 	bool isDivisionValid();
+
 	void printResult(double result);
+
 	void recordHistory(char operation, double result);
+
 	void saveHistory(const std::string& record);
 
 public:
 	void calculate(char operation);
+
 	void displayHistory() const;
+
 	void clearHistory();
+
 	void loadHistory();
 };
 
+//Helper function to clear the input buffer
 void clearInput()
 {
 	std::cin.clear();
