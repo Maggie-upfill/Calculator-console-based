@@ -65,11 +65,18 @@ void Calculator::getNumbers()
 	}
 }
 
-//Helper function to print the result
-void Calculator::printResult(double result)
-{
-	std::cout << "Result: " << result << std::endl;
-}
+//Helper function to print the result & validate if the result is finite (not infinity or NaN)
+	void Calculator::printResult(double result)
+	{
+		if (!std::isfinite(result))
+		{
+			std::cout << "Calculation overflowed or produced an invalid result.\n";
+			return;
+		}
+
+		std::cout << "Result: " << result << '\n';
+	}
+
 
 //Helper function to check if division or modulo is valid
 bool Calculator::isDivisionValid()
@@ -283,7 +290,7 @@ void Calculator::recordHistory(char operation, double result)
 {
 	std::string record =
 		std::to_string(a) + " " +
-		std::string(1, operation) + " " +
+		std::string(1, operation) + " " +    //Role of string(1,operation) to convert the operator (+, -, *, etc.) into a string.
 		std::to_string(b) +
 		" = " +
 		std::to_string(result);
