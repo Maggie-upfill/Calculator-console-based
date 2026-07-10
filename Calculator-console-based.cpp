@@ -47,7 +47,9 @@ private:
 	void getNumbers();
 
 	// Checks whether division or modulo is valid.
-	bool isDivisionValid();
+	bool isDivisorValid()const;
+
+	void squareRoot();
 
 	// Displays the calculation result.
 	void printResult(double result);
@@ -82,7 +84,7 @@ public:
  * to fail.
  */
 
-void clearInput()
+static void clearInput()
 {
 	std::cin.clear();
 
@@ -103,30 +105,32 @@ void clearInput()
  * The validated numbers are stored in the class attributes a and b.
  */
 
-void Calculator::getNumbers()
-{
-	while (true)      
+	void Calculator::getNumbers()
 	{
-		std::cout << "Enter two numbers: ";
-
-		if (!(std::cin >> a >> b))
+		while (true)
 		{
-			std::cout << "Invalid input. Please enter numeric values only.\n";
+			std::cout << "Enter two numbers: ";
 
-			clearInput();
-			continue;
+			if (!(std::cin >> a >> b))
+			{
+				std::cout << "Invalid input. Please enter numeric values only.\n";
+
+				clearInput();
+				continue;
+			}
+
+			if (!std::isfinite(a) || !std::isfinite(b))
+			{
+				std::cout << "Error: Number is outside the supported range.\n";
+
+				clearInput();
+				continue;
+			}
+
+			return;
 		}
-
-		if (!std::isfinite(a) || !std::isfinite(b))
-		{
-			std::cout << "Error: Number is outside the supported range.\n";
-
-			clearInput();  
-		}
-
-		return;
 	}
-}
+
 
 /**
  * @brief Displays the result of a calculation.
@@ -161,16 +165,34 @@ void Calculator::getNumbers()
  * @return false if the divisor is zero.
  */
 
-bool Calculator::isDivisionValid()
-{
-	if (b == 0)
+	bool Calculator::isDivisorValid() const
 	{
-		std::cout << "Error: Division by zero!\n";
-		return false;
+		if (b == 0)
+		{
+			std::cout << "Error: Cannot divide or calculate remainder by zero.\n";
+			return false;
+		}
+
+		return true;
 	}
 
-	return true;
-}
+	void Calculator::squareRoot()
+	{
+		if (a < 0)
+		{
+			std::cout << "Error: Cannot calculate square root of a negative number.\n";
+			return;
+		}
+
+		double result = std::sqrt(a);
+
+		printResult(result);
+
+		if (std::isfinite(result))
+		{
+			recordHistory('s', result);
+		}
+	}
 
 /**
  * @brief Performs a mathematical operation based on the selected operator.
@@ -250,10 +272,10 @@ void Calculator::calculate(char operation)
 
 	case '/':
 	{
-		if (!isDivisionValid())
+		if (!isDivisorValid())
 			return;
 
-		double result = static_cast<double>(a) / b;
+		double result = a / b;
 
 		printResult(result);
 
@@ -267,10 +289,10 @@ void Calculator::calculate(char operation)
 
 	case '%':
 	{
-		if (!isDivisionValid())
+		if (!isDivisorValid())
 			return;
 
-		double result = a % b;
+		double result = std::fmod(a, b);
 
 		printResult(result);
 
@@ -296,46 +318,14 @@ void Calculator::calculate(char operation)
 		break;
 	}
 
-	/*case 's':
+	case 's':
 	{
-		if (number < 0) {
+	
+	squareRoot();
+	break;
 
-			std::cout << "Error: Cannot calculate square root of a negative number!\n";
-			return;
+	}
 
-		}
-		if (number < 0)
-		{
-			std::cout << "Negative number detected.\n";
-			std::cout << "Use absolute value instead? (Y/N): ";
-
-			char answer;
-			std::cin >> answer;
-
-			if (answer == 'Y' || answer == 'y')
-			{
-				number = std::abs(number);
-			}
-			else
-			{
-				return;
-			}
-		}
-
-		std::cout << "Square root = " << std::sqrt(number);
-		
-		double result = std::sqrt(number);
-
-		printResult(result);
-
-		if (std::isfinite(result))
-		{
-			recordHistory('s', result);
-		}
-
-		break;
-
-	}*/
 	case 'q':
 	{
 		double result = a * a;
@@ -417,14 +407,11 @@ void Calculator::calculate(char operation)
 	}
 	case 'w':
 	{
-		int result = std::swap(a, b);
+		std::swap(a, b);
 
-		printResult(result);
+		std::cout << "Numbers swapped.\n";
 
-		if (std::isfinite(result))
-		{
-			recordHistory('w', result);
-		}
+		recordHistory('w', 0);
 
 		break;
 	}
@@ -547,7 +534,7 @@ void Calculator::clearHistory()
 
 	std::cout << "History cleared.\n";
 }
-void menu()
+static void menu()
 {
 	std::cout << "\n=========================\n";
 	std::cout << "      CALCULATOR\n";
