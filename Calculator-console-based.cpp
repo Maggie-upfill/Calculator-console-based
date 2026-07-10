@@ -72,6 +72,16 @@ public:
 	void loadHistory();
 };
 
+/**
+ * @brief Clears the input stream after invalid user input.
+ *
+ * Resets the error state of std::cin and removes any remaining
+ * characters from the input buffer until a newline is found.
+ *
+ * This prevents invalid input from causing future input operations
+ * to fail.
+ */
+
 void clearInput()
 {
 	std::cin.clear();
@@ -80,6 +90,18 @@ void clearInput()
 }
 
 
+/**
+ * @brief Reads and validates two numeric values from the user.
+ *
+ * Continuously prompts the user until valid numeric values are entered.
+ *
+ * Validation includes:
+ * - Checking that input contains numeric values.
+ * - Clearing invalid input from the input buffer.
+ * - Checking for values outside the supported floating-point range.
+ *
+ * The validated numbers are stored in the class attributes a and b.
+ */
 
 void Calculator::getNumbers()
 {
@@ -106,6 +128,19 @@ void Calculator::getNumbers()
 	}
 }
 
+/**
+ * @brief Displays the result of a calculation.
+ *
+ * Checks whether the calculation produced a valid finite value
+ * before displaying the result.
+ *
+ * Prevents displaying:
+ * - Infinity caused by overflow.
+ * - Invalid floating-point results (NaN).
+ *
+ * @param result The calculated value to display.
+ */
+
 	void Calculator::printResult(double result)
 	{
 		if (!std::isfinite(result))
@@ -116,7 +151,15 @@ void Calculator::getNumbers()
 
 		std::cout << "Result: " << result << '\n';
 	}
-
+	/**
+ * @brief Validates whether division can be performed.
+ *
+ * Division by zero is mathematically undefined, so this function
+ * prevents the calculator from performing an invalid operation.
+ *
+ * @return true if the divisor is not zero.
+ * @return false if the divisor is zero.
+ */
 
 bool Calculator::isDivisionValid()
 {
@@ -128,6 +171,34 @@ bool Calculator::isDivisionValid()
 
 	return true;
 }
+
+/**
+ * @brief Performs a mathematical operation based on the selected operator.
+ *
+ * Supported operations:
+ *
+ * +  Addition
+ * -  Subtraction
+ * *  Multiplication
+ * /  Division
+ * %  Modulo
+ * ^  Power
+ * q  Square
+ * c  Cube
+ * a  Absolute value
+ * m  Maximum value
+ * n  Minimum value
+ * v  Average
+ * h  Display history
+ *
+ * The function:
+ * 1. Retrieves validated input values.
+ * 2. Performs the requested calculation.
+ * 3. Displays the result.
+ * 4. Stores successful calculations in history.
+ *
+ * @param operation Character representing the requested operation.
+ */
 
 void Calculator::calculate(char operation)
 {
@@ -369,6 +440,21 @@ void Calculator::calculate(char operation)
 	}
 }
 
+/**
+ * @brief Creates and stores a calculation history record.
+ *
+ * Formats the calculation into a readable string,
+ * stores it in the history vector, and saves it permanently
+ * to a file.
+ *
+ * Example:
+ *
+ * 5 + 2 = 7
+ *
+ * @param operation The mathematical operator used.
+ * @param result The result produced by the calculation.
+ */
+
 void Calculator::recordHistory(char operation, double result)
 {
 	std::string record =
@@ -383,7 +469,14 @@ void Calculator::recordHistory(char operation, double result)
 	saveHistory(record);
 }
 
-
+/**
+ * @brief Saves a calculation record to a text file.
+ *
+ * Appends new calculations to history.txt without
+ * overwriting previous records.
+ *
+ * @param record The formatted calculation string to save.
+ */
 void Calculator::saveHistory(const std::string& record)
 {
 	std::ofstream file("history.txt", std::ios::app);
@@ -393,6 +486,13 @@ void Calculator::saveHistory(const std::string& record)
 		file << record << '\n';
 	}
 }
+
+/**
+ * @brief Loads previous calculations from history.txt.
+ *
+ * Reads stored calculations from the file and restores
+ * them into the history vector when the application starts.
+ */
 
 void Calculator::loadHistory()
 {
@@ -406,7 +506,17 @@ void Calculator::loadHistory()
 	}
 }
 
-
+/**
+ * @brief Displays all stored calculations.
+ *
+ * Prints calculations stored in the history vector with
+ * their corresponding index numbers.
+ *
+ * Example:
+ *
+ * 1. 5 + 2 = 7
+ * 2. 10 / 5 = 2
+ */
 void Calculator::displayHistory() const
 {
 	if (history.empty())
@@ -423,7 +533,12 @@ void Calculator::displayHistory() const
 	}
 }
 
-
+/**
+ * @brief Removes all calculation history.
+ *
+ * Clears the history vector in memory and empties
+ * the history.txt file.
+ */
 void Calculator::clearHistory()
 {
 	history.clear();
