@@ -411,7 +411,9 @@ void Calculator::calculate(char operation)
 	{
 		std::swap(a, b);
 
-		std::cout << "Numbers swapped" << a << " " << b << std::endl;
+		std::cout << "Numbers swapped"
+			          << a << " " << b 
+			          << std::endl;
 
 		recordHistory('w', 0);
 
