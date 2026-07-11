@@ -24,6 +24,7 @@
     <ProjectGuid>{6c30240c-8571-430b-a1de-85c70cfe980d}</ProjectGuid>
     <RootNamespace>Calculatorconsolebased</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Calculator-Console-Based</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
