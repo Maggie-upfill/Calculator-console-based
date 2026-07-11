@@ -411,7 +411,7 @@ void Calculator::calculate(char operation)
 	{
 		std::swap(a, b);
 
-		std::cout << "Numbers swapped.\n";
+		std::cout << "Numbers swapped" << a << " " << b << std::endl;
 
 		recordHistory('w', 0);
 
@@ -468,6 +468,7 @@ void Calculator::recordHistory(char operation, double result)
  */
 void Calculator::saveHistory(const std::string& record)
 {
+	
 	std::ofstream file("history.txt", std::ios::app);
 
 	if (file)
