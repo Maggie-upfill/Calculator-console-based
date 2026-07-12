@@ -13,6 +13,7 @@ Date    : 10 July 2026
 
 #include "Calculator.h"
 #include "Inpututility.h"
+#include "Menu.h"
 
 #include <iostream>
 #include <limits>
