@@ -16,11 +16,7 @@ class Calculator
 private:
 	// Use double to support both integer and decimal calculations.
 
-	 // First operand entered by the user.
-	double a{};
-
-	// Second operand entered by the user.
-	double b{};
+	std::vector<double> numbers;
 
 	// Stores calculations for the current session.
 	std::vector<std::string> history;
