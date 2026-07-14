@@ -1,19 +1,15 @@
-# Calculator
+# Professional Calculator
 
-A simple C++ calculator built using Visual Studio.
+A modular calculator application developed in Modern C++.
 
-## Features
+## Goals
 
-- Addition
-- Subtraction
-- Multiplication
-- Division
-- Modulo
-- Input validation
-- Division-by-zero protection
+- Learn Modern C++
+- Apply Object-Oriented Programming
+- Practice SOLID Principles
+- Learn Software Architecture
+- Practice Agile Development
+- Learn Git & GitHub
+- Implement Unit Testing
+- Build a GUI
 
-## Technologies
-
-- C++
-- Visual Studio
-- Git
