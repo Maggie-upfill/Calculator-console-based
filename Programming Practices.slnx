@@ -3,6 +3,14 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/docs/">
+    <File Path="Architecture.md" />
+    <File Path="Design-Decisions.md" />
+    <File Path="Sprint-notes.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="docs.txt" />
+  </Folder>
   <Project Path="../Calculator tests/Calculator tests.vcxproj" Id="127c954c-da5c-4466-8226-526680ad2ebb" />
   <Project Path="../CalculatorTests/CalculatorTests.vcxproj" Id="891493d5-aecf-4e61-ae92-027843637791" />
   <Project Path="Calculator-console-based.vcxproj" Id="6c30240c-8571-430b-a1de-85c70cfe980d" />

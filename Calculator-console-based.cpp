@@ -14,6 +14,7 @@ Date    : 10 July 2026
 #include "Calculator.h"
 #include "Inpututility.h"
 #include "Menu.h"
+#include "Application.h"
 
 #include <iostream>
 #include <limits>
@@ -87,6 +88,13 @@ public:
  * to fail.
  */
 
+Application::Application()
+{
+}
+
+void Application::run()
+{
+}
 static void clearInput()
 {
 	std::cin.clear();
@@ -568,7 +576,7 @@ static void menu()
 
 int main()
 {
-	Calculator calc;
+	Calculator calc;   // Acts as coordinator
 	calc.loadHistory();
 	int choice{};
 
@@ -648,6 +656,18 @@ int main()
 }
 
 
-
+//Characteristics of maintainable code
+//Single responsibility principle
+//Modular design
+//Consistent formatting
+//Encapsulation
+//Small functions
+//Testing
+//Good documentation
+//Clear comment
+//Good repository history
+//Low coupling
+//High cohesion
+//Meaningful names
 
 

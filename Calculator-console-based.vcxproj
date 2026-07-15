@@ -143,6 +143,7 @@
     <ClCompile Include="Calculator-console-based.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="Calculator.h" />
     <ClInclude Include="Inpututility.h" />
     <ClInclude Include="Menu.h" />
