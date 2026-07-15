@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Calculator.h" />
+    <ClInclude Include="HistoryManager.h" />
     <ClInclude Include="Inpututility.h" />
     <ClInclude Include="Menu.h" />
   </ItemGroup>

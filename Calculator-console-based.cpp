@@ -12,6 +12,7 @@ Date    : 10 July 2026
 */
 
 #include "Calculator.h"
+#include "HistoryManager.h"
 #include "Inpututility.h"
 #include "Menu.h"
 #include "Application.h"
@@ -455,7 +456,7 @@ void Calculator::calculate(char operation)
  * @param result The result produced by the calculation.
  */
 
-void Calculator::recordHistory(char operation, double result)
+void HistoryManager::recordHistory(char operation, double result)
 {
 	std::string record =
 		std::to_string(a) + " " +
@@ -518,7 +519,7 @@ void Calculator::loadHistory()
  * 1. 5 + 2 = 7
  * 2. 10 / 5 = 2
  */
-void Calculator::displayHistory() const
+void HistoryManager::displayHistory() const
 {
 	if (history.empty())
 	{
@@ -540,7 +541,7 @@ void Calculator::displayHistory() const
  * Clears the history vector in memory and empties
  * the history.txt file.
  */
-void Calculator::clearHistory()
+void HistoryManager::clearHistory()
 {
 	history.clear();
 
