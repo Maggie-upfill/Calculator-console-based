@@ -576,6 +576,8 @@ static void menu()
 
 int main()
 {
+	Application app;
+	app.run();
 	Calculator calc;   // Acts as coordinator
 	calc.loadHistory();
 	int choice{};
@@ -655,19 +657,5 @@ int main()
 	} while (choice != 17);
 }
 
-
-//Characteristics of maintainable code
-//Single responsibility principle
-//Modular design
-//Consistent formatting
-//Encapsulation
-//Small functions
-//Testing
-//Good documentation
-//Clear comment
-//Good repository history
-//Low coupling
-//High cohesion
-//Meaningful names
 
 
