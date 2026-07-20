@@ -95,6 +95,82 @@ Application::Application()
 }
 void Application::run()
 {
+	calc.loadHistory();
+	int choice{};
+
+	do {
+		menu.displayMenu();
+		std::cout << "Enter your choice: ";
+		if (!(std::cin >> choice))
+		{
+			clearInput();
+
+			std::cout << "Invalid input.\n";
+			continue;
+		}
+
+		switch (choice) {
+		case 1:
+			calc.calculate('+');
+			break;
+
+		case 2:
+			calc.calculate('-');
+			break;
+
+		case 3:
+			calc.calculate('*');
+			break;
+
+		case 4:
+			calc.calculate('/');
+			break;
+
+		case 5:
+			calc.calculate('%');
+			break;
+		case 6:
+			calc.calculate('^');
+			break;
+		case 7:
+			calc.calculate('s');
+			break;
+		case 8:
+			calc.calculate('q');
+			break;
+		case 9:
+			calc.calculate('c');
+			break;
+		case 10:
+			calc.calculate('a');
+			break;
+		case 11:
+			calc.calculate('m');
+			break;
+		case 12:
+			calc.calculate('n');
+			break;
+		case 13:
+			calc.calculate('v');
+			break;
+		case 14:
+			calc.calculate('w');
+			break;
+		case 15:
+			calc.calculate('h');
+			break;
+		case 16:
+			calc.clearHistory();
+			break;
+		case 17:
+			std::cout << "Exiting the program. Goodbye!\n";
+			break;
+		default:
+			std::cout << "Invalid choice. Please try again.\n";
+			break;
+		}
+
+	} while (choice != 17);
 
 }
 static void clearInput()
@@ -549,7 +625,7 @@ void Calculator::clearHistory()
 
 	std::cout << "History cleared.\n";
 }
-static void menu()
+ void Menu::displayMenu()
 {
 	std::cout << "\n=========================\n";
 	std::cout << "      CALCULATOR\n";
@@ -577,98 +653,11 @@ static void menu()
 
 int main()
 {
+	Application app;
+	app.run();
+
 	Calculator calc;   // Acts as coordinator
-	calc.loadHistory();
-	int choice{};
-
-	do {
-		menu();
-		std::cout << "Enter your choice: ";
-		if (!(std::cin >> choice))
-		{
-			clearInput();
-
-			std::cout << "Invalid input.\n";
-			continue;
-		}
-
-		switch (choice) {
-		case 1:
-			calc.calculate('+');
-			break;
-
-		case 2:
-			calc.calculate('-');
-			break;
-
-		case 3:
-			calc.calculate('*');
-			break;
-
-		case 4:
-			calc.calculate('/');
-			break;
-
-		case 5:
-			calc.calculate('%');
-			break;
-		case 6:
-			calc.calculate('^');
-			break;
-		case 7:
-			calc.calculate('s');
-			break;
-		case 8:
-			calc.calculate('q');
-			break;
-		case 9: 
-			calc.calculate('c');
-			break;
-		case 10:
-			calc.calculate('a');
-			break;
-		case 11:
-			calc.calculate('m');
-			break;
-		case 12:
-			calc.calculate('n');
-			break;
-		case 13:
-			calc.calculate('v');
-			break;
-		case 14:
-			calc.calculate('w');
-			break;
-		case 15:
-			calc.calculate('h');
-			break;
-		case 16:
-			calc.clearHistory();
-			break;
-		case 17:
-			std::cout << "Exiting the program. Goodbye!\n";
-			break;
-		default:
-			std::cout << "Invalid choice. Please try again.\n";
-			break;
-		}
-
-	} while (choice != 17);
 }
 
-
-//Characteristics of maintainable code
-//Single responsibility principle
-//Modular design
-//Consistent formatting
-//Encapsulation
-//Small functions
-//Testing
-//Good documentation
-//Clear comment
-//Good repository history
-//Low coupling
-//High cohesion
-//Meaningful names
 
 
