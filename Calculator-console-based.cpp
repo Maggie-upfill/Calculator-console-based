@@ -90,10 +90,7 @@ public:
 
 Application::Application()
 {
-}
 
-void Application::run()
-{
 }
 static void clearInput()
 {
@@ -155,7 +152,6 @@ static void clearInput()
  *
  * @param result The calculated value to display.
  */
-
 	void Calculator::printResult(double result)
 	{
 		if (!std::isfinite(result))
