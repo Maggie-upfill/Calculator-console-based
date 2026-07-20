@@ -1,3 +1,6 @@
 #pragma once
- 
-void menu();
+ class Menu
+{
+public:
+   // void displayMenu();
+};
