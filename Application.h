@@ -1,4 +1,5 @@
 #pragma once
+#include "Menu.h"
 
 class Application
 {
@@ -8,4 +9,5 @@ public:
 
 private:
     // We'll add member objects in the next step.
+	Menu menu;
 };
