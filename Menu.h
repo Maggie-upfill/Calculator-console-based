@@ -3,5 +3,5 @@
 class Menu
 {
 public:
-   // void displayMenu();
+    void displayMenu();
 };
