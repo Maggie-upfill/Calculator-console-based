@@ -9,5 +9,5 @@ public:
 
 private:
     // We'll add member objects in the next step.
-	//Menu menu;
+	Menu menu;
 };
