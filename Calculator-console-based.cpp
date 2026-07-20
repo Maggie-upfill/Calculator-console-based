@@ -578,6 +578,7 @@ int main()
 {
 	Application app;
 	app.run();
+
 	Calculator calc;   // Acts as coordinator
 	calc.loadHistory();
 	int choice{};
