@@ -1,5 +1,6 @@
 #pragma once
-//#include "Menu.h"
+#include "Menu.h"
+#include "Calculator.h"
 
 class Application
 {
@@ -10,4 +11,5 @@ public:
 private:
     // We'll add member objects in the next step.
 	Menu menu;
+	Calculator calc;
 };
