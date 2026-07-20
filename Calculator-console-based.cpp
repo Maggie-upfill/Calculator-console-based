@@ -92,6 +92,10 @@ Application::Application()
 {
 
 }
+void Application::run()
+{
+
+}
 static void clearInput()
 {
 	std::cin.clear();
