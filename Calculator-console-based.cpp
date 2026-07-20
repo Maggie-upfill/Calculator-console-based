@@ -34,7 +34,7 @@ Date    : 10 July 2026
  * and saves/loads history from a file.
  */
 
-/*class Calculator
+class Calculator
 {
 private:
 	// Use double to support both integer and decimal calculations.
@@ -77,7 +77,7 @@ public:
 
 
 	void loadHistory();
-};*/
+};
 
 /**
  * @brief Clears the input stream after invalid user input.
@@ -167,7 +167,7 @@ static void clearInput()
 
 		std::cout << "Result: " << result << '\n';
 	}
-	/**
+	/*
  * @brief Validates whether division can be performed.
  *
  * Division by zero is mathematically undefined, so this function
@@ -456,7 +456,7 @@ void Calculator::calculate(char operation)
  * @param result The result produced by the calculation.
  */
 
-void HistoryManager::recordHistory(char operation, double result)
+void Calculator::recordHistory(char operation, double result)
 {
 	std::string record =
 		std::to_string(a) + " " +
@@ -519,7 +519,7 @@ void Calculator::loadHistory()
  * 1. 5 + 2 = 7
  * 2. 10 / 5 = 2
  */
-void HistoryManager::displayHistory() const
+void Calculator::displayHistory() const
 {
 	if (history.empty())
 	{
@@ -541,7 +541,7 @@ void HistoryManager::displayHistory() const
  * Clears the history vector in memory and empties
  * the history.txt file.
  */
-void HistoryManager::clearHistory()
+void Calculator::clearHistory()
 {
 	history.clear();
 
