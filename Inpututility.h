@@ -1,4 +1,9 @@
 #pragma once
-#include <limits>
 
-void clearInput();
+class Inpututility
+{
+
+public:
+	 void clearInput();
+
+};

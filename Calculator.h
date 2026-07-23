@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 /*
  * @class Calculator
@@ -11,14 +12,14 @@
  * and saves/loads history from a file.
  */
 
-/*class Calculator
+class Calculator
 {
 private:
 	// Use double to support both integer and decimal calculations.
 
 	//std::vector<double> numbers;
-	double a;
-	double b;
+	double a{};
+	double b{};
 
 	// Reads and validates user input.
 	void getNumbers();
@@ -56,4 +57,4 @@ public:
 
 
 	void loadHistory();
-};*/
+};

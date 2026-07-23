@@ -1,5 +1,6 @@
 #pragma once
 #include "Menu.h"
+#include "Inpututility.h"
 #include "Calculator.h"
 
 class Application
@@ -9,7 +10,7 @@ public:
     void run();
 
 private:
-    // We'll add member objects in the next step.
 	Menu menu;
-	Calculator calc;
+	Inpututility input;
+	Calculator calculator;
 };
