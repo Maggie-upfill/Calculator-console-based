@@ -1,8 +1,8 @@
 
 #pragma once
 
- class Menu
+class Menu
 {
 public:
-   void displayMenu();
+    void displayMenu();
 };
